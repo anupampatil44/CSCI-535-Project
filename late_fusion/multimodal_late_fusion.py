@@ -11,7 +11,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import accuracy_score, f1_score
 
 
-# ──────────────────────────────── CONFIG ──────────────────────────────── #
+
 ROOT        = Path(__file__).resolve().parent       # current directory
 DATA_DIR    = ROOT                                  # modalities live here
 LABELS_FILE = ROOT / "ground_truth.json"
@@ -22,10 +22,7 @@ EPOCHS      = 20
 LR          = 3e-4
 DEVICE      = "cuda" if torch.cuda.is_available() else "cpu"
 SEED        = 42
-# ──────────────────────────────────────────────────────────────────────── #
 
-
-# ------------------------------ DATASET --------------------------------- #
 class MultiModalSarcasm(Dataset):
     MODALITIES = ["audio", "visual", "text_context", "text_utterance"]
 
@@ -53,7 +50,7 @@ class MultiModalSarcasm(Dataset):
         return data, label
 
 
-# ------------------------------ MODEL ----------------------------------- #
+
 class DenseBlock(nn.Module):
     def __init__(self, in_dim, mid_dim=None, out_dim=256, p=0.1):
         super().__init__()
@@ -128,7 +125,7 @@ def run_epoch(model, loader, crit, optim=None, bar_desc="train"):
     return np.mean(losses), accuracy_score(ys, ŷs), f1_score(ys, ŷs)
 
 
-# ------------------------------ MAIN ------------------------------------ #
+
 if __name__ == "__main__":
     torch.manual_seed(SEED); random.seed(SEED); np.random.seed(SEED)
 
