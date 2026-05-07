@@ -117,9 +117,3 @@ cd CSCI-535-Project
 
 pip install -r requirements.txt
 ```
-
----
-
-
----
-```
