@@ -120,11 +120,6 @@ pip install -r requirements.txt
 
 ---
 
-## Team
-
-- Abi Murthy — Audio + Attention Fusion
-- Anupam Patil — Visual + Early Fusion
-- Nick Prestine — Text + Late Fusion
 
 ---
 ```
